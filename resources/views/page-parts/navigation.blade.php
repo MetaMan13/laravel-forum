@@ -8,6 +8,7 @@
         </div>
 
         <div class="hidden md:flex">
+            <img src="/images/moon.svg" alt="" class="self-center mr-4" id="moon">
             <img src="/images/bell.svg" alt="" class="self-center mr-4">
             <x-profile-dropdown></x-profile-dropdown>
         </div>

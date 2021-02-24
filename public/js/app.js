@@ -3791,9 +3791,30 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    functionsIn = _require.functionsIn;
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+/*
+    DARKMODE FOR NOW
+*/
+
+
+var moon = document.getElementById('moon');
+moon.addEventListener('click', toggleDarkMode);
+
+function toggleDarkMode() {
+  if (document.body.classList.value == "") {
+    document.body.classList.value = "dark";
+  } else {
+    document.body.classList.value = "";
+  }
+}
+/*
+    DARKMODE CODE BLOCK END
+*/
 
 /***/ }),
 
