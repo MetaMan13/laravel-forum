@@ -8,8 +8,8 @@
         </div>
 
         <div class="hidden md:flex">
-            <img src="/images/moon.svg" alt="" class="self-center mr-4" id="moon">
-            <img src="/images/bell.svg" alt="" class="self-center mr-4">
+            <img src="/images/moon.svg" alt="" class="self-center mr-4 h-5" id="moon">
+            <img src="/images/bell.svg" alt="" class="self-center mr-4 h-5">
             <x-profile-dropdown></x-profile-dropdown>
         </div>
     </div>

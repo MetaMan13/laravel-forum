@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProfilesController extends Controller
 {
@@ -21,17 +22,24 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function save()
+    public function update()
     {
-        request()->validate([
+        $user = auth()->user();
+        $attributes = request()->validate([
+            'nickname' => [
+                'required',
+                'max:255',
+                Rule::unique('users')->ignore($user)
+            ],
             'name' => 'required|max:255',
-            'email' => 'required'
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users')->ignore($user)
+            ]
         ]);
 
-        $user = auth()->user();
-        $user->name = request()->name;
-        $user->email = request()->email;
-        $user->save();
-        return redirect()->to('profile');
+        $user->update($attributes);
+        return redirect()->to('profile')->with('success', 'Your profile has been updated!');
     }
 }

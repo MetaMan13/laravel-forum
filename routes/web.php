@@ -21,8 +21,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     // PROFILE ROUTES
     Route::get('/profile', 'App\Http\Controllers\ProfilesController@index')->name('profile');
-    Route::put('/profile', 'App\Http\Controllers\ProfilesController@save');
-    Route::get('/profile/{user}', 'App\Http\Controllers\ProfilesController@show');
+    Route::patch('/profile', 'App\Http\Controllers\ProfilesController@update');
+    Route::get('/profile/{user:nickname}', 'App\Http\Controllers\ProfilesController@show');
 });
 
 require __DIR__.'/auth.php';
