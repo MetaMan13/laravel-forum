@@ -20,4 +20,18 @@ class ProfilesController extends Controller
             'user' => $user
         ]);
     }
+
+    public function save()
+    {
+        request()->validate([
+            'name' => 'required|max:255',
+            'email' => 'required'
+        ]);
+
+        $user = auth()->user();
+        $user->name = request()->name;
+        $user->email = request()->email;
+        $user->save();
+        return redirect()->to('profile');
+    }
 }

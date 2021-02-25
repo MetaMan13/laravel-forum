@@ -20,7 +20,8 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function(){
 
     // PROFILE ROUTES
-    Route::get('/profile', 'App\Http\Controllers\ProfilesController@index');
+    Route::get('/profile', 'App\Http\Controllers\ProfilesController@index')->name('profile');
+    Route::put('/profile', 'App\Http\Controllers\ProfilesController@save');
     Route::get('/profile/{user}', 'App\Http\Controllers\ProfilesController@show');
 });
 
