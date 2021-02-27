@@ -7,7 +7,7 @@
     <title>Laravel Forum</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="dark">
+<body class="">
     <div class="text-gray-600 font-normal w-full h-screen min-h-screen bg-gray-50 dark:bg-gray-800">
         @yield('content')
     </div>

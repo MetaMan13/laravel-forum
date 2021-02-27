@@ -2,5 +2,7 @@
 
 @section('content')
     @include('page-parts.navigation')
-    <h1>Hewo {{ auth()->user()->name }}</h1>
+    <div class="min-h-screen">
+        <h1>Hewo {{ auth()->user()->name }}</h1>
+    </div>
 @endsection
