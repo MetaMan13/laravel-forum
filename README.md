@@ -20,3 +20,10 @@ Functionality
     11. Option to add friend
     12. Get notified when a user liked or commented on your post
     13. Option to follow a topic and get notified when new posts are available 
+
+
+STYLES:
+
+   LIGHT THEME:
+      border-gray-300, shadow-md, background-gray-100, (on top of layout) => items -> bg-white
+      button = rounded-md bg-blue-600 hover:blue-800
