@@ -32,4 +32,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/post/create', 'App\Http\Controllers\PostController@create');
     Route::post('/post', 'App\Http\Controllers\PostController@store');
     Route::get('/post/{post}', 'App\Http\Controllers\PostController@show');
+    Route::patch('/post/{post}', 'App\Http\Controllers\PostController@update');
+    Route::delete('/post/{post}', 'App\Http\Controllers\PostController@destroy');
+    Route::get('/post/{post}/edit', 'App\Http\Controllers\PostController@edit');
 });
