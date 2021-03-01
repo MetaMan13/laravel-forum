@@ -11,7 +11,7 @@ class ProfilesController extends Controller
     public function index()
     {
         return view('profile.index', [
-            'user' => auth()->user()
+            'users' => User::all()
         ]);
     }
 

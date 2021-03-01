@@ -13,16 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__.'/auth.php';
+
 Route::get('/', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 
+// PROFILE ROUTES GROUP
 Route::group(['middleware' => 'auth'], function(){
-
-    // PROFILE ROUTES
     Route::get('/profile', 'App\Http\Controllers\ProfilesController@index')->name('profile');
     Route::patch('/profile', 'App\Http\Controllers\ProfilesController@update');
     Route::get('/profile/{user:nickname}', 'App\Http\Controllers\ProfilesController@show');
 });
 
-require __DIR__.'/auth.php';
+// POST ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/post', 'App\Http\Controllers\PostController@index');
+    Route::get('/post/create', 'App\Http\Controllers\PostController@create');
+    Route::post('/post', 'App\Http\Controllers\PostController@store');
+    Route::get('/post/{post}', 'App\Http\Controllers\PostController@show');
+});
