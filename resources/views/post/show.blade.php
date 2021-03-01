@@ -12,13 +12,18 @@
             <a href="/post/{{ $post->id }}">{{ $post->title }}</a>
             <h2>POST BODY: {{ $post->body }}</h2>
         </div>
-    
-        <a href="/post/{{ $post->id }}/edit">Edit this post</a>
-        <br>
-        <form action="/post/{{ $post->id }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Delete this post</button>
-        </form>
+        
+        {{-- Only the user who created the post can edit or delete it --}}
+        @can('update-post', $post)
+            <a href="/post/{{ $post->id }}/edit">Edit this post</a>           
+        @endcan
+
+        @can('destroy-post', $post)
+            <form action="/post/{{ $post->id }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete this post</button>
+            </form>
+        @endcan
     </div>
 @endsection

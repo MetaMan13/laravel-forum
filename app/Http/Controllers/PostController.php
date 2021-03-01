@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Auth\Access\Gate;
+use Illuminate\Contracts\Auth\Access\Gate as AccessGate;
+use Illuminate\Support\Facades\Gate as FacadesGate;
 
 class PostController extends Controller
 {
@@ -41,6 +44,10 @@ class PostController extends Controller
 
     public function update(Post $post)
     {
+        if(! FacadesGate::allows('update-post', $post)){
+            abort(403);
+        }
+
         $attributes = request()->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string|max:255'
@@ -51,6 +58,10 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        if(! FacadesGate::allows('destroy-post', $post)){
+            abort(403);
+        }
+
         $post->delete();
 
         return view('post.destroy');
