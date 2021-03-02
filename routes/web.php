@@ -36,3 +36,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/post/{post}', 'App\Http\Controllers\PostController@destroy');
     Route::get('/post/{post}/edit', 'App\Http\Controllers\PostController@edit');
 });
+
+// THEME ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/theme', 'App\Http\Controllers\UserController@theme');
+});

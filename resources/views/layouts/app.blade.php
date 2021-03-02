@@ -7,7 +7,7 @@
     <title>Laravel Forum</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="">
+<body class="{{ auth()->user()->theme }}">
     <div class="w-full min-h-screen bg-gray-50 dark:bg-gray-900 font-normal text-md">
         @yield('content')
     </div>

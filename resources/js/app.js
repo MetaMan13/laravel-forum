@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const { functionsIn } = require('lodash');
 
 require('./bootstrap');
@@ -15,11 +16,13 @@ moon.addEventListener('click', toggleDarkMode)
 
 function toggleDarkMode()
 {
-    if(document.body.classList.value == "")
+    if(document.body.classList.value == "light")
     {
         document.body.classList.value = "dark"
+        axios.post('http://localhost:3000/theme', {theme: 'dark'});
     }else{
-        document.body.classList.value = ""
+        document.body.classList.value = "light"
+        axios.post('http://localhost:3000/theme', {theme: 'light'});
     }
 }
 

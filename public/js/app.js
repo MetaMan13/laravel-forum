@@ -3791,8 +3791,11 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
-    functionsIn = _require.functionsIn;
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
+var _require2 = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    functionsIn = _require2.functionsIn;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -3806,10 +3809,16 @@ var moon = document.getElementById('moon');
 moon.addEventListener('click', toggleDarkMode);
 
 function toggleDarkMode() {
-  if (document.body.classList.value == "") {
+  if (document.body.classList.value == "light") {
     document.body.classList.value = "dark";
+    axios.post('http://localhost:3000/theme', {
+      theme: 'dark'
+    });
   } else {
-    document.body.classList.value = "";
+    document.body.classList.value = "light";
+    axios.post('http://localhost:3000/theme', {
+      theme: 'light'
+    });
   }
 }
 /*

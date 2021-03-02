@@ -18,9 +18,9 @@
             </x-menu.item>
         </x-menu.layout>
         
-        <div class="min-h-full w-6/12 bg-gray-100 -mt-1 dark:bg-gray-800"></div>
+        <x-main-content.layout></x-main-content.layout>
         
-        <div class="min-h-full w-3/12 -mt-1">
+        <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
             <div class="w-full h-full bg-gray-50 pr-4 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-32 text-right border-l-2 border-gray-100 dark:bg-gray-900 dark:border-gray-800">
                 <div class="w-full h-full"></div>
             </div>

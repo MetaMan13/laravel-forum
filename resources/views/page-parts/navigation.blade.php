@@ -1,4 +1,4 @@
-<div class="bg-gray-50 w-full fixed top-0 left-0 border-b-2 border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+<div class=" bg-gray-50 w-full fixed top-0 left-0 border-b-2 border-gray-100 dark:bg-gray-900 dark:border-gray-800">
     <div class="mx-auto px-4 py-4 flex justify-between md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         <div class="flex">
             <a href="/" class="flex">
