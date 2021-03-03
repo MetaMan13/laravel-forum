@@ -19,10 +19,12 @@
         </x-menu.layout>
         
         <x-main-content.layout></x-main-content.layout>
-        
+
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
-            <div class="w-full h-full bg-gray-50 pr-4 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-32 text-right border-l-2 border-gray-100 dark:bg-gray-900 dark:border-gray-800">
-                <div class="w-full h-full"></div>
+            <div class="w-full h-screen bg-gray-50 pr-4 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-32 text-right border-l border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full h-full">
+                    <h3>HEWO</h3>
+                </div>
             </div>
         </div>
     </div>

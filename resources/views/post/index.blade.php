@@ -19,7 +19,9 @@
         </x-menu.layout>
         
         <x-main-content.layout>
-            {{ $posts->links() }}
+            <div class="mb-10">
+                {{ $posts->links() }}
+            </div>
             @foreach ($posts as $post)
                 <x-post.layout>
                     {{-- User icon and nickname --}}
