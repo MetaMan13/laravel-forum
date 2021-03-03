@@ -5,8 +5,8 @@
 
     <div class="bg-gray-50 min-h-full dark:bg-gray-800">
 
-        <div class="w-full pt-24 border-b border-gray-200 dark:border-gray-600 md:hidden">
-            <img src="/images/bear.jpg" alt="" class="block w-28 rounded-full mx-auto">
+        <div class="w-full pt-24 border-b border-gray-200 dark:border-gray-600">
+            <img src="/images/{{ $user->image }}" alt="" class="block w-28 rounded-full mx-auto">
             <h3 class="font-semibold text-xl text-center mt-2 dark:text-gray-50">
                 {{ $user->nickname }}
             </h3>
@@ -23,8 +23,8 @@
             </ul>
         </div>
 
-        <div class="md:hidden">
-            <form action="/profile" method="POST" class="px-4 py-6">
+        <div class="">
+            <form action="/profile" method="POST" class="px-4 py-6" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 @if ($message = Session::get('success'))
@@ -51,11 +51,18 @@
                 @error('email')
                     <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
                 @enderror
+                <div class="flex flex-col mt-4">
+                    <label for="image" class="font-semibold mb-0.5 text-sm">Profile image</label>
+                    <input id="image" type="file" class="text-md dark:bg-gray-600 dark:text-gray-50" name="image">
+                </div>
+                @error('image')
+                    <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
+                @enderror
                 <button type="submit" class="bg-gray-900 w-full mt-6 py-2 text-gray-50 font-semibold dark:text-gray-50">Save info</button>
             </form>
         </div>
 
-        <div class="px-6 bg-gray-50 min-h-screen w-full lg:px-8 xl:px-12 2xl:px-16 hidden md:block dark:bg-gray-800">
+        <div class="px-6 bg-gray-50 min-h-screen w-full lg:px-8 xl:px-12 2xl:px-16 hidden dark:bg-gray-800">
             <div class="pt-20 h-screen w-full mx-auto border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-600">
                 <div class="h-36 w-full flex">
                     <div class="h-full w-40">

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('theme')->default('light');
             $table->string('name');
             $table->string('email')->unique();
+            $table->text('image')->default('/images/medo.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

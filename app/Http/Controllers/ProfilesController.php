@@ -24,22 +24,70 @@ class ProfilesController extends Controller
 
     public function update()
     {
-        $user = auth()->user();
-        $attributes = request()->validate([
-            'nickname' => [
-                'required',
-                'max:255',
-                Rule::unique('users')->ignore($user)
-            ],
-            'name' => 'required|max:255',
-            'email' => [
-                'required',
-                'email',
-                Rule::unique('users')->ignore($user)
-            ]
-        ]);
+        /*
+            Check if image exists/isset
 
-        $user->update($attributes);
-        return redirect()->to('profile')->with('success', 'Your profile has been updated!');
+            IF: validate and upload
+        */
+
+        if(!isset(request()->image))
+        {
+
+            $user = auth()->user();
+            $attributes = request()->validate([
+                'nickname' => [
+                    'required',
+                    'max:255',
+                    Rule::unique('users')->ignore($user)
+                ],
+                'name' => 'required|max:255',
+                'email' => [
+                    'required',
+                    'email',
+                    Rule::unique('users')->ignore($user)
+                ]
+            ]);
+
+            $user->update($attributes);
+            return redirect("/profile/$user->nickname")->with('success', 'Your profile has been updated!');
+
+        }else{
+
+            $user = auth()->user();
+            $attributes = request()->validate([
+                'nickname' => [
+                    'required',
+                    'max:255',
+                    Rule::unique('users')->ignore($user)
+                ],
+                'name' => 'required|max:255',
+                'email' => [
+                    'required',
+                    'email',
+                    Rule::unique('users')->ignore($user)
+                ],
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:1024'
+            ]);
+
+            /*
+                Here we want to name our images accordingly to the user
+
+                EXAMPLE:
+
+                image-falcon-2021-1614811058.jpg
+
+            */
+
+            $imageName = 'image-' . strtolower($user->nickname) . '-' . date('Y') . '-' . time() . '.' . request()->image->extension();
+
+            request()->image->move(public_path('images'), $imageName);
+
+            $attributes['image'] = $imageName;
+
+            $user->update($attributes);
+
+            return redirect("/profile/$user->nickname")->with('success', 'Your profile has been updated!');
+
+        }
     }
 }
