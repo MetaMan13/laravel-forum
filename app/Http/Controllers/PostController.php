@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.index', ['posts' => Post::skip(100)->take(20)->get()]);
+        return view('post.index', ['posts' => \App\Models\Post::with('user', 'likes', 'comments')->paginate(50)]);
     }
 
     public function create()

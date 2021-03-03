@@ -19,6 +19,7 @@
         </x-menu.layout>
         
         <x-main-content.layout>
+            {{ $posts->links() }}
             @foreach ($posts as $post)
                 <x-post.layout>
                     {{-- User icon and nickname --}}
@@ -55,6 +56,7 @@
                     </div>
                 </x-post.layout>
             @endforeach
+            {{ $posts->links() }}
         </x-main-content.layout>
         
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
