@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.index', ['posts' => Post::all()]);
+        return view('post.index', ['posts' => Post::skip(100)->take(20)->get()]);
     }
 
     public function create()
