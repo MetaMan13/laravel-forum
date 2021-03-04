@@ -23,7 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->lastName,
+            'nickname' => $this->faker->regexify('[A-Za-z0-9]{13}'),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),

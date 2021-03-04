@@ -12,7 +12,7 @@
                 <x-icons.compas></x-icons.compas>
                 Posts
             </x-menu.item>
-            <x-menu.item href="/user">
+            <x-menu.item href="/profile">
                 <x-icons.users></x-icons.users>
                 People
             </x-menu.item>
@@ -28,4 +28,5 @@
             </div>
         </div>
     </div>
+    @include('page-parts.mobile-user-bar')
 @endsection

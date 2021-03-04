@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -11,7 +12,7 @@ class ProfilesController extends Controller
     public function index()
     {
         return view('profile.index', [
-            'users' => User::all()
+            'users' => \App\Models\Post::with('user', 'likes', 'comments')->simplePaginate(50)
         ]);
     }
 
@@ -78,7 +79,7 @@ class ProfilesController extends Controller
 
             */
 
-            $imageName = 'image-' . strtolower($user->nickname) . '-' . date('Y') . '-' . time() . '.' . request()->image->extension();
+            $imageName = '/images/image-' . strtolower($user->nickname) . '-' . date('Y') . '-' . time() . '.' . request()->image->extension();
 
             request()->image->move(public_path('images'), $imageName);
 
@@ -87,7 +88,6 @@ class ProfilesController extends Controller
             $user->update($attributes);
 
             return redirect("/profile/$user->nickname")->with('success', 'Your profile has been updated!');
-
         }
     }
 }

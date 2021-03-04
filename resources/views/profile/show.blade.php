@@ -6,7 +6,7 @@
     <div class="bg-gray-50 min-h-full dark:bg-gray-800">
 
         <div class="w-full pt-24 border-b border-gray-200 dark:border-gray-600">
-            <img src="/images/{{ $user->image }}" alt="" class="block w-28 rounded-full mx-auto">
+            <img src="{{ $user->image }}" alt="" class="block w-28 rounded-full mx-auto">
             <h3 class="font-semibold text-xl text-center mt-2 dark:text-gray-50">
                 {{ $user->nickname }}
             </h3>

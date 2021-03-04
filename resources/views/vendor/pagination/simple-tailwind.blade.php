@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination Navigation" class="flex flex-col">
-        <div class="self-center mb-6">
+        <div class="self-center mb-6 w-full text-center">
             <h2 class="text-lg dark:text-gray-300">
                 Showing posts from {{ $paginator->firstItem()}} to {{ $paginator->lastItem() }}
             </h2>

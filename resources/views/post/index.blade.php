@@ -12,7 +12,7 @@
                 <x-icons.compas></x-icons.compas>
                 Posts
             </x-menu.item-active>
-            <x-menu.item href="/user">
+            <x-menu.item href="/profile">
                 <x-icons.users></x-icons.users>
                 People
             </x-menu.item>
@@ -58,7 +58,9 @@
                     </div>
                 </x-post.layout>
             @endforeach
-            {{ $posts->links() }}
+            <div class="mb-14 md:mb-0">
+                {{ $posts->links() }}
+            </div>
         </x-main-content.layout>
         
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
@@ -69,4 +71,5 @@
             </div>
         </div>
     </div>
+    @include('page-parts.mobile-user-bar')
 @endsection

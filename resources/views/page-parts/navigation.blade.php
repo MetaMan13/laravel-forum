@@ -7,10 +7,16 @@
             </a>
         </div>
 
-        <div class="hidden md:flex">
-            <x-icons.moon></x-icons.moon>
-            <x-icons.bell></x-icons.bell>
-            <x-profile-dropdown></x-profile-dropdown>
+        <div class="flex items-center">
+            <div class="self-center">
+                <x-icons.moon></x-icons.moon>
+            </div>
+            <div class="self-center hidden md:inline-block">
+                <x-icons.bell></x-icons.bell>
+            </div>
+            <div class="self-center hidden md:inline-block">
+                <x-profile-dropdown></x-profile-dropdown>
+            </div>
         </div>
     </div>
 </div>
