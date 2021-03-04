@@ -41,3 +41,13 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/theme', 'App\Http\Controllers\UserController@theme');
 });
+
+// LIKE ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/like', 'App\Http\Controllers\LikeController@create');
+});
+
+// NOTIFICATIONS ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/notifications', 'App\Http\Controllers\UserNotificationsController@show');
+});

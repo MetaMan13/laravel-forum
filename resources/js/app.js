@@ -5,7 +5,6 @@ require('./bootstrap');
 
 require('alpinejs');
 
-
 /*
     DARKMODE FOR NOW
 */

@@ -12,7 +12,12 @@
                 <x-icons.moon></x-icons.moon>
             </div>
             <div class="self-center hidden md:inline-block">
-                <x-icons.bell></x-icons.bell>
+                <a href="/notifications" class="flex relative">
+                    <x-icons.bell></x-icons.bell>
+                    @if (count(auth()->user()->notifications) != 0)
+                        <div class="bg-blue-600 h-2 w-2 rounded-full absolute top-0 left-2.5"></div>
+                    @endif
+                </a>
             </div>
             <div class="self-center hidden md:inline-block">
                 <x-profile-dropdown></x-profile-dropdown>

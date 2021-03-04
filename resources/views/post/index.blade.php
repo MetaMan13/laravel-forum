@@ -42,7 +42,7 @@
                     <div class="mt-3 flex">
 
                         <div class="flex">
-                            <x-icons.like></x-icons.like>
+                            <x-icons.like postId="{{ $post->id }}"></x-icons.like>
                             <p class="self-center dark:text-gray-400 text-gray-500">
                                 {{ count($post->likes) }}
                             </p>
