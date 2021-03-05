@@ -48,6 +48,14 @@
                             </p>
                         </div>
 
+
+                        <div class="flex ml-4">
+                            <x-icons.dislike postId="{{ $post->id }}"></x-icons.dislike>
+                            <p class="self-center dark:text-gray-400 text-gray-500">
+                                {{ count($post->dislikes) }}
+                            </p>
+                        </div>
+
                         <div class="flex ml-4">
                             <x-icons.comment></x-icons.comment>
                             <p class="self-center dark:text-gray-400 text-gray-500">

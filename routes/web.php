@@ -47,6 +47,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/like', 'App\Http\Controllers\LikeController@create');
 });
 
+// DISLIKE ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/dislike', 'App\Http\Controllers\DislikeController@create');
+});
+
 // NOTIFICATIONS ROUTES GROUP
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/notifications', 'App\Http\Controllers\UserNotificationsController@show');
