@@ -62,6 +62,7 @@ class PostLiked extends Notification
         return [
             'user_id' => $this->user->id,
             'user_nickname' => $this->user->nickname,
+            'user_image' => $this->user->image,
             'post_id' => $this->post->id,
             'post_title' => $this->post->title
         ];
