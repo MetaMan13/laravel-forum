@@ -18,20 +18,30 @@ class LikeController extends Controller
             'post_id' => $request->post_id,
         ];
 
+        $user = User::find($request->user_id);
+        $post = Post::find($request->post_id);
+        $post_owner = User::find(Post::find($request->post_id)->user->id);
+        $like = Like::where('user_id', $user->id)->where('post_id', $post->id)->get();
+
         /* 
             Check if user already liked the post
         */
 
-        if(count(User::find($request->user_id)->likes->where('post_id', request()->post_id)) > 0)
+        if(count($like) > 0)
         {
+            $this->destroy($like[0]);
             return back();
         }
 
-        $user_liked_post = User::find($request->user_id);
-        $post = Post::find($request->post_id);
-        $post_owner = User::find(Post::find($request->post_id)->user->id);
         Like::create($attributes);
-        Notification::send($post_owner, new PostLiked($user_liked_post, $post));
+
+        Notification::send($post_owner, new PostLiked($user, $post));
+
         return back();
+    }
+
+    public function destroy(Like $like)
+    {
+        $like->delete();
     }
 }
