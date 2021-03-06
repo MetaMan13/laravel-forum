@@ -19,14 +19,17 @@
         </x-menu.layout>
         
         <x-main-content.layout>
-            <div class="mb-10">
-                {{ $posts->links() }}
-            </div>
+            @if ($posts->links())
+                <div class="mb-14 md:mb-0">
+                    {{ $posts->links() }}
+                </div>
+            @endif
             @foreach ($posts as $post)
                 <x-post.layout>
                     {{-- User icon and nickname --}}
                     <div class="flex">
-                        <x-icons.user></x-icons.user>
+                        <img src="{{ $post->user->image }}" alt="" class="h-8 rounded-full">
+                        {{-- <x-icons.user></x-icons.user> --}}
                         <a class="self-center ml-2 text-sm text-gray-500 dark:text-gray-400" href="/profile/{{ $post->user->nickname }}">
                             {{ $post->user->nickname }}
                         </a>
@@ -66,9 +69,11 @@
                     </div>
                 </x-post.layout>
             @endforeach
-            <div class="mb-14 md:mb-0">
-                {{ $posts->links() }}
-            </div>
+            @if ($posts->links())
+                <div class="mb-14 md:mb-0">
+                    {{ $posts->links() }}
+                </div>
+            @endif
         </x-main-content.layout>
         
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
