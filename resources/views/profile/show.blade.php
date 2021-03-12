@@ -4,8 +4,8 @@
     @include('page-parts.navigation')
 
     <div class="pt-16 min-h-screen flex">
-        <div class="min-h-full w-full -mt-1 px-4 py-10 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
-            <div class="w-full min-h-full bg-gray-50 dark:bg-gray-800">
+        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-100 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
+            <div class="w-full min-h-full bg-gray-100 dark:bg-gray-800">
                 {{-- User icon and nickname --}}
                 <div class="flex flex-col">
                     <div class="flex justify-center">
@@ -23,24 +23,19 @@
                     </div>
                 @endif
 
-                {{-- User stats likes, dislikes, comments, friends,--}}
-                <div class="mt-4 flex justify-between">
-                    {{-- <div class="flex">
-                        <x-icons.like></x-icons.like>
-                        <p>{{ count($user->likes) }}</p>
-                    </div>
-                    <div class="ml-4 flex">
-                        <x-icons.dislike></x-icons.dislike>
-                        <p>{{ count($user->dislikes) }}</p>
-                    </div>
-                    <div class="ml-4 flex">
-                        <x-icons.comment></x-icons.comment>
-                        <p>{{ count($user->comments) }}</p>
-                    </div> --}}
-                </div>
-                {{-- User posts tab, activity history tab, groups --}}
-                <div class="bg-red-300">
-
+                <div class="mt-8 pb-10">
+                    @foreach (auth()->user()->posts as $post)
+                        <div class="mt-2 py-2 dark:text-gray-300">
+                            <div>
+                                <p class="font-semibold">{{ $post->title }}</p>
+                            </div>
+                            <div class="mt-0.5">
+                                <p class="text-xs">
+                                    {{ now()->diffForHumans($post->created_at, true) }} ago
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
