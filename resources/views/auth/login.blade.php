@@ -4,6 +4,11 @@
             <a href="/">
                 <img src="/images/logo-dark.svg" alt="">
             </a>
+            <h1 class="text-2xl mt-1 font-semibold">
+                Login
+                <h3 class="mt-0.5">or <a href="/register" class="text-blue-600 font-semibold">register</a></h3>
+            </h1>
+
         </x-slot>
 
         <!-- Session Status -->

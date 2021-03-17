@@ -14,11 +14,25 @@
                     <div class="flex justify-center mt-2">
                         <h2 class="self-center text-lg font-bold dark:text-gray-300">{{ $user->nickname }}</h2>
                     </div>
+                    <div class="flex text-xs mt-4 dark:text-gray-300">
+                        <div class="flex flex-col text-center">
+                            <h3>Following</h3>
+                            <p class="mt-0.5">
+                                {{ count($user->follows) }}
+                            </p>
+                        </div>
+                        <div class="ml-4 flex flex-col text-center">
+                            <h3>Followers</h3>
+                            <p class="mt-0.5">
+                                {{ count($user->followers) }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 {{-- If the id of the authenticated user matches the id of the view passed user display edit profile option/button --}}
                 @if (auth()->user()->id === $user->id)
-                    <div class="py-1 text-center mt-4 bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">
+                    <div class="py-1 text-center mt-6 bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">
                         <a href="/profile/{{ $user->nickname }}/edit" class="text-sm font-semibold uppercase">Edit profile</a>
                     </div>
                 @endif

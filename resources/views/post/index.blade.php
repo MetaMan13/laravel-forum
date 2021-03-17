@@ -2,7 +2,7 @@
 
 @section('content')
     @include('page-parts.navigation')
-    <div class="pt-4 min-h-screen flex">
+    <div class="pt-4 min-h-screen flex md:pt-16">
         <x-menu.layout>
             <x-menu.item href="/">
                 <x-icons.home></x-icons.home>

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Dislike;
+use App\Models\Follow;
 
 class User extends Authenticatable
 {
@@ -65,5 +66,15 @@ class User extends Authenticatable
     public function dislikes()
     {
         return $this->hasMany(Dislike::class);
+    }
+
+    public function follows()
+    {
+        return $this->hasMany(Follow::class);
+    }
+
+    public function followers()
+    {
+        return $this->hasMany(Follow::class, 'follow_id');
     }
 }
