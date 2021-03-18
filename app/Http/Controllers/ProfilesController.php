@@ -12,7 +12,7 @@ class ProfilesController extends Controller
     public function index()
     {
         return view('profile.index', [
-            'users' => \App\Models\Post::with('user', 'likes', 'comments')->simplePaginate(50)
+            'users' => \App\Models\User::simplePaginate(50)
         ]);
     }
 

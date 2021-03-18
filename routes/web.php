@@ -52,6 +52,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/dislike', 'App\Http\Controllers\DislikeController@create');
 });
 
+// FOLLOW ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/follow', 'App\Http\Controllers\FollowController@create');
+});
+
 // NOTIFICATIONS ROUTES GROUP
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/notifications', 'App\Http\Controllers\UserNotificationsController@show');

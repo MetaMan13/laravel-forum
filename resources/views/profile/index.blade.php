@@ -19,6 +19,28 @@
         </x-menu.layout>
         
         <x-main-content.layout>
+            
+            @foreach ($users as $user)
+                <x-profile.index-item-layout>
+                    
+                    <div class="flex">
+                        <img src="{{ $user->image }}" alt="" class="h-8 rounded-full">
+                        <a href="/profile/{{ $user->nickname }}" class="font-semibold self-center ml-2 text-md text-gray-500 dark:text-gray-400">
+                            {{ $user->nickname }}
+                        </a>
+                    </div>
+
+                    <div class="">
+                        <form action="/follow" method="POST">
+                            @csrf
+                            @method('POST')
+                            <input type="hidden" value="{{ $user->id }}" name="user_id">
+                            <button type="submit" class="border-2 bg-blue-600 rounded-md py-1 px-2 text-gray-50 font-semibold">Follow</button>
+                        </form>
+                    </div>
+
+                </x-profile.index-item-layout>
+            @endforeach
 
         </x-main-content.layout>
         

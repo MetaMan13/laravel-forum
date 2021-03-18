@@ -1,14 +1,17 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <img src="/images/logo-dark.svg" alt="">
-            </a>
-            <h1 class="text-2xl mt-1 font-semibold">
-                Login
-                <h3 class="mt-0.5">or <a href="/register" class="text-blue-600 font-semibold">register</a></h3>
-            </h1>
-
+            <div class="flex">
+                <a href="/">
+                    <img src="/images/logo-dark.svg" alt="">
+                </a>
+                <h1 class="self-center text-4xl font-bold ml-1">Login</h1>
+            </div>
+            <div class="text-center">
+                <h3>or 
+                    <a href="/register" class="font-bold text-blue-600">register</a>
+                </h3>
+            </div>
         </x-slot>
 
         <!-- Session Status -->

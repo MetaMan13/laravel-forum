@@ -1,9 +1,12 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <img src="/images/logo-dark.svg" alt="">
-            </a>
+            <div class="flex">
+                <a href="/">
+                    <img src="/images/logo-dark.svg" alt="">
+                </a>
+                <h1 class="self-center text-4xl font-bold ml-1">Register</h1>
+            </div>
         </x-slot>
 
         <!-- Validation Errors -->
