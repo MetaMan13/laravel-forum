@@ -31,7 +31,14 @@
                     </div>
 
                     @if (auth()->user()->follows->contains('follow_id', $user->id))
-                        <h1>Already follows</h1>
+                        <div class="">
+                            <form action="/unfollow" method="POST">
+                                @csrf
+                                @method('POST')
+                                <input type="hidden" value="{{ $user->id }}" name="user_id">
+                                <button type="submit" class="border-2 bg-blue-600 rounded-md py-1 px-2 text-gray-50 font-semibold">Unfollow</button>
+                            </form>
+                        </div>
                     @else
                         <div class="">
                             <form action="/follow" method="POST">

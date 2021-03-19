@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function(){
 // FOLLOW ROUTES GROUP
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/follow', 'App\Http\Controllers\FollowController@create');
+    Route::post('/unfollow', 'App\Http\Controllers\FollowController@destroy');
 });
 
 // NOTIFICATIONS ROUTES GROUP

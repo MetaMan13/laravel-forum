@@ -38,4 +38,29 @@ class FollowController extends Controller
         Follow::create($attributes);
         return redirect()->back();
     }
+
+    public function destroy(Request $request)
+    {
+        /*
+            Check if follow exists
+        */
+        $follow = Follow::where('user_id', auth()->user()->id)->where('follow_id', $request->user_id)->first();
+
+        /*
+            If the follow exists delete it
+        */
+
+        if($follow)
+        {
+            $follow->delete();
+
+            return redirect()->back();
+        }
+        
+        /*
+            If not just redirect back
+        */
+        
+        return redirect()->back();
+    }
 }
