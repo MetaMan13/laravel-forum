@@ -44,6 +44,16 @@
                     disliked your post
                     </x-notifications.notification>
                 @endif
+
+                @if ($notification->type === 'App\Notifications\NewFollower')
+                    <x-notifications.notification
+                        userImage="{{ $notification->data['user_image'] }}"
+                        userNickname="{{ $notification->data['user_nickname'] }}"
+                        createdAt="{{ $notification->created_at }}"
+                    >
+                    started following you
+                    </x-notifications.notification>
+                @endif
             @endforeach
         </x-main-content.layout>
         

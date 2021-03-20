@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Follow;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewFollower;
+use Illuminate\Support\Facades\Auth;
 
 class FollowController extends Controller
 {
@@ -35,7 +38,9 @@ class FollowController extends Controller
             'follow_id' => $request->user_id
         ];
 
-        Follow::create($attributes);
+        $new_follow = Follow::create($attributes);
+        $notify_user = User::find($request->user_id);
+        Notification::send($notify_user, new NewFollower(Auth::user()));
         return redirect()->back();
     }
 
