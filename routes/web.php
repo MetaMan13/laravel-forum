@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['follows' => App\Models\Follow::where('user_id', auth()->user()->id)->get()->load(['follower.posts', 'follower.posts.likes', 'follower.posts.dislikes', 'follower.posts.comments'])]);
 })->middleware(['auth'])->name('home');
 
 // PROFILE ROUTES GROUP
