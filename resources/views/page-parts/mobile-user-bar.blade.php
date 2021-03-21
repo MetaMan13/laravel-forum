@@ -7,6 +7,17 @@
         <a href="/post">
             <x-mobile-user-bar.post></x-mobile-user-bar.post>
         </a>
+        
+        <a href="/profile">
+            <x-mobile-user-bar.users></x-mobile-user-bar.users>
+        </a>
+        
+        <a href="/notifications" class="flex relative">
+            <x-mobile-user-bar.notifications></x-mobile-user-bar.notifications>
+            @if (count(auth()->user()->unreadNotifications) != 0)
+                <div class="bg-blue-600 h-2 w-2 rounded-full absolute top-0 left-2.5 dark:bg-blue-300"></div>
+            @endif
+        </a>
 
         <a href="/profile/{{ auth()->user()->nickname }}">
             <img src="{{ auth()->user()->image }}" alt="" class="self-center bg-gray-600 rounded-full h-6 dark:bg-gray-300" @click="open = true">

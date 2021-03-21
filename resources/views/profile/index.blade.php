@@ -26,27 +26,27 @@
                     <div class="flex justify-between">
                         <div class="flex">
                             <img src="{{ $user->image }}" alt="" class="h-8 rounded-full">
-                            <a href="/profile/{{ $user->nickname }}" class="font-semibold self-center ml-2 text-md text-gray-500 dark:text-gray-400">
+                            <a href="/profile/{{ $user->nickname }}" class="text-md font-semibold self-center ml-2 text-md text-gray-500 dark:text-gray-400">
                                 {{ $user->nickname }}
                             </a>
                         </div>
 
                         @if (auth()->user()->follows->contains('follow_id', $user->id))
-                            <div class="">
-                                <form action="/unfollow" method="POST">
+                            <div class="flex">
+                                <form action="/unfollow" method="POST" class="self-center">
                                     @csrf
                                     @method('POST')
                                     <input type="hidden" value="{{ $user->id }}" name="user_id">
-                                    <button type="submit" class="border rounded-md py-1 px-2 font-semibold border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-300 dark:hover:text-blue-300 dark:hover:border-blue-300">Unfollow</button>
+                                    <button type="submit" class="text-sm md:text-md border rounded-md py-1 px-1.5 font-semibold border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-300 dark:hover:text-blue-300 dark:hover:border-blue-300">Unfollow</button>
                                 </form>
                             </div>
                         @else
-                            <div class="">
-                                <form action="/follow" method="POST">
+                            <div class="flex">
+                                <form action="/follow" method="POST" class="self-center">
                                     @csrf
                                     @method('POST')
                                     <input type="hidden" value="{{ $user->id }}" name="user_id">
-                                    <button type="submit" class="border rounded-md py-1 px-2 font-semibold border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-300 dark:hover:text-blue-300 dark:hover:border-blue-300">Follow</button>
+                                    <button type="submit" class="text-sm md:text-md border rounded-md py-1 px-1.5 font-semibold border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-300 dark:hover:text-blue-300 dark:hover:border-blue-300">Follow</button>
                                 </form>
                             </div>
                         @endif
@@ -65,4 +65,5 @@
             </div>
         </div>
     </div>
+    @include('page-parts.mobile-user-bar')
 @endsection
