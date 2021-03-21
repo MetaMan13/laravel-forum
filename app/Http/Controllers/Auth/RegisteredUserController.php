@@ -20,7 +20,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('auth.register', [
+            'countries' => \App\Models\Country::all()
+        ]);
     }
 
     /**
@@ -40,6 +42,7 @@ class RegisteredUserController extends Controller
                 'max:255', 
                 Rule::unique('users')
             ],
+            'country' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
@@ -47,6 +50,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user = User::create([
             'nickname' => $request->nickname,
+            'country' => $request->country,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),

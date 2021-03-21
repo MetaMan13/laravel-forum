@@ -7,7 +7,7 @@
         <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-100 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
             <div class="w-full min-h-full bg-gray-100 dark:bg-gray-800">
                 {{-- User icon and nickname --}}
-                <div class="flex flex-col">
+                {{-- <div class="flex flex-col">
                     <div class="flex justify-center">
                         <img src="{{ $user->image }}" alt="" class="h-14 rounded-full self-center">
                     </div>
@@ -28,16 +28,16 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- If the id of the authenticated user matches the id of the view passed user display edit profile option/button --}}
-                @if (auth()->user()->id === $user->id)
+                {{-- @if (auth()->user()->id === $user->id)
                     <div class="py-1 text-center mt-6 bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">
                         <a href="/profile/{{ $user->nickname }}/edit" class="text-sm font-semibold uppercase">Edit profile</a>
                     </div>
-                @endif
+                @endif --}}
 
-                <div class="mt-8 pb-10">
+                {{-- <div class="mt-8 pb-10">
                     @foreach (auth()->user()->posts as $post)
                         <div class="mt-2 py-2 dark:text-gray-300">
                             <div>
@@ -50,6 +50,28 @@
                             </div>
                         </div>
                     @endforeach
+                </div> --}}
+                {{-- User image, nickname, badges, followers, following --}}
+                <div class="">
+
+                    <div class="flex">
+
+                        {{-- Profile image --}}
+                        <div class="">
+                            <img src="{{ $user->image }}" alt="" class="h-16 rounded-full">
+                        </div>
+
+                        {{-- Profile nickname --}}
+                        <div class="self-center ml-6">
+                            <h3 class="text-lg font-semibold">{{ $user->nickname }}</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="bg-red-300">
+
+                    </div>
+
                 </div>
             </div>
         </div>

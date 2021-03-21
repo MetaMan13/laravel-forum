@@ -28,6 +28,17 @@
                 <x-input id="nickname" class="block mt-1 w-full" type="text" name="nickname" :value="old('nickname')" required autofocus />
             </div>
 
+            <div class="mt-4">
+                <x-label for="country" :value="__('Country')" />
+
+                {{-- <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus /> --}}
+                <select name="country" id="" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
+                    @foreach ($countries as $country)
+                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />

@@ -10,6 +10,7 @@ use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Dislike;
 use App\Models\Follow;
+use App\Models\Country;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'nickname',
         'name',
         'email',
+        'country',
         'password',
         'theme',
         'image'
@@ -76,5 +78,10 @@ class User extends Authenticatable
     public function followers()
     {
         return $this->hasMany(Follow::class, 'follow_id');
+    }
+
+    public function country()
+    {
+        return $this->hasOne(Country::class, 'id');
     }
 }
