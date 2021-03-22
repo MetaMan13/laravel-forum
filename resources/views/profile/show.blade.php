@@ -4,8 +4,8 @@
     @include('page-parts.navigation')
 
     <div class="pt-16 min-h-screen flex">
-        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-100 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
-            <div class="w-full min-h-full bg-gray-100 dark:bg-gray-800">
+        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-50 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
+            <div class="w-full min-h-full bg-gray-50 dark:bg-gray-800">
                 {{-- User icon and nickname --}}
                 {{-- <div class="flex flex-col">
                     <div class="flex justify-center">
@@ -73,7 +73,7 @@
                         <img src="{{ $user->country->image }}" alt="" class="h-8">
                     </div>
 
-                    <div class="flex text-xs mt-4 dark:text-gray-300">
+                    <div class="flex text-xs mt-4">
                         <div class="flex flex-col text-center">
                             <h3 class="font-semibold">Following</h3>
                             <p class="mt-0.5">

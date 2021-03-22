@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="{{ auth()->user()->theme }}">
-    <div class="w-full min-h-screen bg-gray-50 dark:bg-gray-800 font-normal text-md">
+    <div class="w-full min-h-screen bg-gray-50 dark:bg-gray-800 font-normal text-md text-gray-600 dark:text-gray-300">
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>

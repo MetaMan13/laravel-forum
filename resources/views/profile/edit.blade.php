@@ -4,8 +4,8 @@
     @include('page-parts.navigation')
 
     <div class="pt-16 min-h-screen flex">
-        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-100 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
-            <div class="w-full min-h-full bg-gray-100 dark:bg-gray-800">
+        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-50 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
+            <div class="w-full min-h-full bg-gray-50 dark:bg-gray-800">
 
                 <div>
                     <img src="{{ $user->image }}" alt="" class="h-24">
