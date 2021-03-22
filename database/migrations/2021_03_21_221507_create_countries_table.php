@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
+            $table->string('image')->default('none');
             $table->timestamps();
         });
     }

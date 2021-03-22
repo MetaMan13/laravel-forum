@@ -32,7 +32,7 @@
                 <x-label for="country" :value="__('Country')" />
 
                 {{-- <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus /> --}}
-                <select name="country" id="" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
+                <select name="country_id" id="" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full">
                     @foreach ($countries as $country)
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                     @endforeach

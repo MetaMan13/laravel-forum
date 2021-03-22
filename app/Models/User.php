@@ -25,7 +25,7 @@ class User extends Authenticatable
         'nickname',
         'name',
         'email',
-        'country',
+        'country_id',
         'password',
         'theme',
         'image'
@@ -82,6 +82,6 @@ class User extends Authenticatable
 
     public function country()
     {
-        return $this->hasOne(Country::class, 'id');
+        return $this->hasOne(Country::class, 'id', 'country_id');
     }
 }

@@ -69,7 +69,8 @@
                     </div>
 
                     <div class="bg-red-300">
-
+                        <p>{{ $user->country->name }}</p>
+                        <img src="{{ $user->country->image }}" alt="" class="h-8">
                     </div>
 
                 </div>
