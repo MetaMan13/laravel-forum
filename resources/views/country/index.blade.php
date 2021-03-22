@@ -12,20 +12,40 @@
                 <x-icons.compas></x-icons.compas>
                 Posts
             </x-menu.item>
-            <x-menu.item-active href="/profile">
+            <x-menu.item href="/profile">
                 <x-icons.users></x-icons.users>
                 People
+            </x-menu.item>
+            <x-menu.item-active href="/country">
+                <x-icons.flag></x-icons.flag>
+                Countries
             </x-menu.item-active>
         </x-menu.layout>
         
         <x-main-content.layout>
 
+            @if ($countries->links())
+                <div class="mb-10">
+                    {{ $countries->links() }}
+                </div>
+            @endif
+
             @foreach ($countries as $country)
                 <x-post.layout>
-                    <img src="{{ $country->image }}" alt="" class="h-8">
-                    {{ $country->name}}
+                    <div class="flex">
+                        <img src="{{ $country->image }}" alt="" class="h-8">
+                        <h3 class="ml-4 self-center">
+                            {{ $country->name}}
+                        </h3>
+                    </div>
                 </x-post.layout>
             @endforeach
+
+            @if ($countries->links())
+                <div class="mb-10">
+                    {{ $countries->links() }}
+                </div>
+            @endif
 
         </x-main-content.layout>
         

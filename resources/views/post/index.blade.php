@@ -16,6 +16,10 @@
                 <x-icons.users></x-icons.users>
                 People
             </x-menu.item>
+            <x-menu.item href="/country">
+                <x-icons.flag></x-icons.flag>
+                Countries
+            </x-menu.item>
         </x-menu.layout>
         
         <x-main-content.layout>

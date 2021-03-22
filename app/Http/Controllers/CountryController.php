@@ -9,7 +9,7 @@ class CountryController extends Controller
     public function index()
     {
         return view('country.index', [
-            'countries' => \App\Models\Country::all()
+            'countries' => \App\Models\Country::simplePaginate(30)
         ]);
     }
 }
