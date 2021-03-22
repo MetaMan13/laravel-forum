@@ -65,3 +65,8 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/notifications', 'App\Http\Controllers\UserNotificationsController@show');
 });
+
+// COUNTRY ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/country', 'App\Http\Controllers\CountryController@index');
+});
