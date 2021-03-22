@@ -73,6 +73,21 @@
                         <img src="{{ $user->country->image }}" alt="" class="h-8">
                     </div>
 
+                    <div class="flex text-xs mt-4 dark:text-gray-300">
+                        <div class="flex flex-col text-center">
+                            <h3 class="font-semibold">Following</h3>
+                            <p class="mt-0.5">
+                                {{ count($user->follows) }}
+                            </p>
+                        </div>
+                        <div class="ml-4 flex flex-col text-center">
+                            <h3 class="font-semibold">Followers</h3>
+                            <p class="mt-0.5">
+                                {{ count($user->followers) }}
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

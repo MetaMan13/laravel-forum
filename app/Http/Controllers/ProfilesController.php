@@ -12,7 +12,7 @@ class ProfilesController extends Controller
     public function index()
     {
         return view('profile.index', [
-            'users' => \App\Models\User::with(['follows', 'followers'])->simplePaginate(50)
+            'users' => \App\Models\User::with(['follows', 'followers'])->simplePaginate(30)
         ]);
     }
 

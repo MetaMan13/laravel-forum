@@ -23,11 +23,13 @@
         </x-menu.layout>
         
         <x-main-content.layout>
+
             @if ($posts->links())
-                <div class="mb-14 md:mb-0">
+                <div class="mb-10">
                     {{ $posts->links() }}
                 </div>
             @endif
+
             @foreach ($posts as $post)
                 <x-post.layout>
                     {{-- User icon and nickname --}}
@@ -74,7 +76,7 @@
                 </x-post.layout>
             @endforeach
             @if ($posts->links())
-                <div class="mb-14 md:mb-0">
+                <div class="mb-10">
                     {{ $posts->links() }}
                 </div>
             @endif

@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         // return view('post.index', ['posts' => \App\Models\Post::with(['user', 'likes', 'comments'])->simplePaginate(50)]);
-        return view('post.index', ['posts' => \App\Models\Post::with(['user', 'likes', 'dislikes', 'comments'])->orderBy('created_at', 'DESC')->simplePaginate(50)]);
+        return view('post.index', ['posts' => \App\Models\Post::with(['user', 'likes', 'dislikes', 'comments'])->orderBy('created_at', 'DESC')->simplePaginate(30)]);
     }
 
     public function create()

@@ -34,7 +34,7 @@
                 <x-post.layout>
                     <div class="flex">
                         <img src="{{ $country->image }}" alt="" class="h-8">
-                        <h3 class="ml-4 self-center">
+                        <h3 class="ml-4 self-center dark:text-gray-300 font-semibold">
                             {{ $country->name}}
                         </h3>
                     </div>

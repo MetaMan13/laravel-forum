@@ -23,6 +23,12 @@
         </x-menu.layout>
         
         <x-main-content.layout>
+
+            @if ($users->links())
+                <div class="mb-10">
+                    {{ $users->links() }}
+                </div>
+            @endif
             
             @foreach ($users as $user)
                 <x-profile.index-item-layout>
@@ -30,7 +36,7 @@
                     <div class="flex justify-between">
                         <div class="flex">
                             <img src="{{ $user->image }}" alt="" class="h-8 rounded-full">
-                            <a href="/profile/{{ $user->nickname }}" class="text-md font-semibold self-center ml-2 text-md text-gray-500 dark:text-gray-400">
+                            <a href="/profile/{{ $user->nickname }}" class="text-md font-semibold self-center ml-2 text-md text-gray-600 dark:text-gray-300">
                                 {{ $user->nickname }}
                             </a>
                         </div>
@@ -58,6 +64,12 @@
 
                 </x-profile.index-item-layout>
             @endforeach
+
+            @if ($users->links())
+                <div class="mb-10">
+                    {{ $users->links() }}
+                </div>
+            @endif
 
         </x-main-content.layout>
         
