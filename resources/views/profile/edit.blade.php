@@ -2,91 +2,67 @@
 
 @section('content')
     @include('page-parts.navigation')
-
     <div class="pt-16 min-h-screen flex">
-        <div class="min-h-full w-full -mt-1 px-4 py-10 bg-gray-50 dark:bg-gray-800 md:px-10 lg:px-16 xl:px-24 2xl:px-32 mx-auto">
-            <div class="w-full min-h-full bg-gray-50 dark:bg-gray-800">
+        <x-menu.layout>
+            <x-menu.item href="/">
+                <x-icons.home></x-icons.home>
+                Home
+            </x-menu.item>
+            <x-menu.item href="/post">
+                <x-icons.compas></x-icons.compas>
+                Posts
+            </x-menu.item>
+            <x-menu.item href="/profile">
+                <x-icons.users></x-icons.users>
+                People
+            </x-menu.item>
+            <x-menu.item href="/country">
+                <x-icons.flag></x-icons.flag>
+                Countries
+            </x-menu.item>
+        </x-menu.layout>
+        
+        <x-main-content.layout>
 
-                <div>
-                    <img src="{{ $user->image }}" alt="" class="h-24">
-                </div>
-
-                <form action="/profile" method="POST" class="bg-red-500" enctype="multipart/form-data">
+            <div class=" dark:border-gray-700 md:w-8/12 md:mx-auto">
+                <form action="/profile" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
-
-                    <div>
-                        <label for="userProfilePicture">Profile picture</label>
+    
+                    <div class="flex flex-col mb-4">
+                        <label for="userProfilePicture" class="mb-3">Change profile picture</label>
                         <input type="file" value="{{ $user->image }}" name="image">
                     </div>
-
-                    <div>
-                        <label for="userNickname">Nickname</label>
-                        <input type="text" value="{{ $user->nickname }}" name="nickname">
+    
+                    <div class="flex flex-col mb-4">
+                        <label for="userNickname" class="mb-2">Nickname</label>
+                        <input type="text" value="{{ $user->nickname }}" name="nickname" class="dark:bg-gray-700">
                     </div>
-
-                    <div>
-                        <label for="userName">Name</label>
-                        <input type="text" value="{{ $user->name }}" name="name">
+    
+                    <div class="flex flex-col mb-4">
+                        <label for="userName" class="mb-2">Name</label>
+                        <input type="text" value="{{ $user->name }}" name="name" class="dark:bg-gray-700">
                     </div>
-
-                    <div>
-                        <label for="userEmail">Email</label>
-                        <input type="email" value="{{ $user->email }}" name="email">
+    
+                    <div class="flex flex-col mb-4">
+                        <label for="userEmail" class="mb-2">Email</label>
+                        <input type="email" value="{{ $user->email }}" name="email" class="dark:bg-gray-700">
                     </div>
-
-                    <button type="submit">Update information</button>
-
+    
+                    <button type="submit" class="w-full mt-6 rounded-md py-1.5 text-sm block text-center font-semibold uppercase bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">Update information</button>
+    
                 </form>
+            </div>
 
-                {{-- <div class="flex flex-col">
-                    <div class="flex justify-center">
-                        <img src="{{ $user->image }}" alt="" class="h-14 rounded-full self-center">
-                    </div>
-                    <div class="flex justify-center mt-2">
-                        <h2 class="self-center text-lg font-bold dark:text-gray-300">{{ $user->nickname }}</h2>
-                    </div>
-                    <div class="flex text-xs mt-4 dark:text-gray-300">
-                        <div class="flex flex-col text-center">
-                            <h3 class="font-semibold">Following</h3>
-                            <p class="mt-0.5">
-                                {{ count($user->follows) }}
-                            </p>
-                        </div>
-                        <div class="ml-4 flex flex-col text-center">
-                            <h3 class="font-semibold">Followers</h3>
-                            <p class="mt-0.5">
-                                {{ count($user->followers) }}
-                            </p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                {{-- If the id of the authenticated user matches the id of the view passed user display edit profile option/button --}}
-                {{-- @if (auth()->user()->id === $user->id)
-                    <div class="py-1 text-center mt-6 bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">
-                        <a href="/profile/{{ $user->nickname }}/edit" class="text-sm font-semibold uppercase">Edit profile</a>
-                    </div>
-                @endif --}}
-
-                {{-- <div class="mt-8 pb-10">
-                    @foreach (auth()->user()->posts as $post)
-                        <div class="mt-2 py-2 dark:text-gray-300">
-                            <div>
-                                <p class="font-semibold">{{ $post->title }}</p>
-                            </div>
-                            <div class="mt-0.5">
-                                <p class="text-xs">
-                                    {{ now()->diffForHumans($post->created_at, true) }} ago
-                                </p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div> --}}
+        </x-main-content.layout>
+        
+        <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">
+            <div class="w-full h-screen bg-gray-50 pr-4 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-32 text-right border-l border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full h-full">
+                    <h3>HEWO</h3>
+                </div>
             </div>
         </div>
     </div>
-
     @include('page-parts.mobile-user-bar')
-
 @endsection
