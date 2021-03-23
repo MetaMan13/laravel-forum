@@ -30,13 +30,6 @@
                     </div>
                 </div> --}}
 
-                {{-- If the id of the authenticated user matches the id of the view passed user display edit profile option/button --}}
-                {{-- @if (auth()->user()->id === $user->id)
-                    <div class="py-1 text-center mt-6 bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">
-                        <a href="/profile/{{ $user->nickname }}/edit" class="text-sm font-semibold uppercase">Edit profile</a>
-                    </div>
-                @endif --}}
-
                 {{-- <div class="mt-8 pb-10">
                     @foreach (auth()->user()->posts as $post)
                         <div class="mt-2 py-2 dark:text-gray-300">
@@ -52,43 +45,51 @@
                     @endforeach
                 </div> --}}
                 {{-- User image, nickname, badges, followers, following --}}
-                <div class="">
 
-                    <div class="flex">
+                <div class="flex w-full">
 
-                        {{-- Profile image --}}
-                        <div class="">
-                            <img src="{{ $user->image }}" alt="" class="h-16 rounded-full">
-                        </div>
+                    <div class="self-center">
 
-                        {{-- Profile nickname --}}
-                        <div class="self-center ml-6">
-                            <h3 class="text-lg font-semibold">{{ $user->nickname }}</h3>
-                        </div>
+                        <img src="{{ $user->image }}" alt="" class="h-16 rounded-full">
 
                     </div>
+                        
+                    <div class="ml-4 self-center">
 
-                    <div class="bg-red-300">
-                        <p>{{ $user->country->name }}</p>
-                        <img src="{{ $user->country->image }}" alt="" class="h-8">
-                    </div>
+                        <div>
+                            <h3 class="text-md font-bold">{{ $user->nickname }}</h3>
+                        </div>
 
-                    <div class="flex text-xs mt-4">
-                        <div class="flex flex-col text-center">
-                            <h3 class="font-semibold">Following</h3>
-                            <p class="mt-0.5">
-                                {{ count($user->follows) }}
-                            </p>
+                        <div class="flex mt-1 text-sm">
+                            <div>
+                                <p>
+                                    <span class="font-semibold">
+                                        {{ count($user->follows) }}
+                                    </span>
+
+                                    following
+                                </p>
+                            </div>
+
+                            <div class="ml-2">
+                                <p>
+                                    <span class="font-semibold">
+                                        {{ count($user->followers) }}
+                                    </span>
+
+                                    followers
+                                </p>
+                            </div>
                         </div>
-                        <div class="ml-4 flex flex-col text-center">
-                            <h3 class="font-semibold">Followers</h3>
-                            <p class="mt-0.5">
-                                {{ count($user->followers) }}
-                            </p>
-                        </div>
+
                     </div>
 
                 </div>
+
+                @if (auth()->user()->id === $user->id)
+                    <a href="/profile/{{ $user->nickname }}/edit" class="mt-4 rounded-md py-1.5 text-sm block text-center font-semibold uppercase bg-blue-600 text-gray-50 border-2 border-gray-200 dark:bg-blue-300 dark:border-gray-700 dark:text-gray-800">Edit profile</a>
+                @endif
+
             </div>
         </div>
     </div>
