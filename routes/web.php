@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('home', ['follows' => App\Models\Follow::where('user_id', auth()->user()->id)->get()->load(['follower.posts', 'follower.posts.likes', 'follower.posts.dislikes', 'follower.posts.comments'])]);
+    return view('home', [
+        'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->simplePaginate(30)
+    ]);
 })->middleware(['auth'])->name('home');
 
 // PROFILE ROUTES GROUP

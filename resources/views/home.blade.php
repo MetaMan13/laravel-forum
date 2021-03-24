@@ -23,12 +23,16 @@
         </x-menu.layout>
         
         <x-main-content.layout>
-            @foreach ($follows as $follow)
-                @foreach ($follow->follower['posts'] as $post)
 
+            @if ($posts->links())
+                <div class="mb-10 mt-10 md:mt-0">
+                    {{ $posts->links() }}
+                </div>
+            @endif
+
+            @foreach ($posts as $post)
                 <x-post.layout>
-
-                    {{-- Follower user information --}}
+                    {{-- User icon and nickname --}}
                     <div class="flex">
                         <img src="{{ $post->user->image }}" alt="" class="h-8 rounded-full">
                         {{-- <x-icons.user></x-icons.user> --}}
@@ -36,15 +40,14 @@
                             {{ $post->user->nickname }}
                         </a>
                     </div>
-
-                    {{-- Follower Post title --}}
+                    
+                    {{-- Post title --}}
                     <div class="mt-3">
                         <a href="/post/{{ $post->id }}" class="text-md text-lg">
                             {{ $post->title }}
                         </a>
                     </div>
-
-
+                    {{-- Post likes and comments --}}
                     <div class="mt-3 flex">
 
                         <div class="flex">
@@ -71,9 +74,13 @@
 
                     </div>
                 </x-post.layout>
-
-                @endforeach
             @endforeach
+
+            @if ($posts->links())
+                <div class="mb-10 mt-10 md:mt-0">
+                    {{ $posts->links() }}
+                </div>
+            @endif
         </x-main-content.layout>
 
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">

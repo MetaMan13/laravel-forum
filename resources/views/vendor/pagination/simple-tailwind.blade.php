@@ -13,14 +13,14 @@
                     {!! __('pagination.previous') !!}
                 </span>
             @else
-                <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 bg-gray-50 border border-gray-200 leading-5 rounded-md hover:text-blue-600 focus:outline-none focus:ring-1 ring-gray-200 focus:border-blue-600 active:bg-gray-100 active:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-700 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:focus:ring-blue-300 dark:focus:text-blue-300">
+                <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="bg-white relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 border border-gray-200 leading-5 rounded-md hover:text-blue-600 focus:outline-none focus:ring-1 ring-gray-200 focus:border-blue-600 active:bg-gray-100 active:text-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-700 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:focus:ring-blue-300 dark:focus:text-blue-300">
                     {!! __('pagination.previous') !!}
                 </a>
             @endif
 
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 bg-gray-50 border border-gray-200 leading-5 rounded-md hover:text-blue-600 focus:outline-none focus:ring-1 ring-gray-300 focus:border-blue-600 active:bg-gray-100 active:text-gray-700 dark:focus:ring-blue-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-700 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:focus:text-blue-300">
+                <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="bg-white relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 border border-gray-200 leading-5 rounded-md hover:text-blue-600 focus:outline-none focus:ring-1 ring-gray-300 focus:border-blue-600 active:bg-gray-100 active:text-gray-700 dark:focus:ring-blue-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-700 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:focus:text-blue-300">
                     {!! __('pagination.next') !!}
                 </a>
             @else
