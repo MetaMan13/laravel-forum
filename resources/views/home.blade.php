@@ -20,6 +20,10 @@
                 <x-icons.flag></x-icons.flag>
                 Countries
             </x-menu.item>
+            <x-menu.item href="/group">
+                <x-icons.group></x-icons.group>
+                Groups
+            </x-menu.item>
         </x-menu.layout>
         
         <x-main-content.layout>

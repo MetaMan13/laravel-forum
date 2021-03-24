@@ -2,7 +2,8 @@
 
 @section('content')
     @include('page-parts.navigation')
-    <div class="pt-16 min-h-screen flex">
+    <div class="pt-4 min-h-screen flex md:pt-16">
+        
         <x-menu.layout>
             <x-menu.item href="/">
                 <x-icons.home></x-icons.home>
@@ -16,41 +17,30 @@
                 <x-icons.users></x-icons.users>
                 People
             </x-menu.item>
-            <x-menu.item-active href="/country">
+            <x-menu.item href="/country">
                 <x-icons.flag></x-icons.flag>
                 Countries
-            </x-menu.item-active>
-            <x-menu.item href="/group">
+            </x-menu.item>
+            <x-menu.item-active href="/group">
                 <x-icons.group></x-icons.group>
                 Groups
-            </x-menu.item>
+            </x-menu.item-active>
         </x-menu.layout>
-            
+        
         <x-main-content.layout>
-
-            @if ($countries->links())
-                <div class="mb-10">
-                    {{ $countries->links() }}
-                </div>
-            @endif
-
-            @foreach ($countries as $country)
+            @foreach ($groups as $group)
                 <x-post.layout>
+
+
                     <div class="flex">
-                        <img src="{{ $country->image }}" alt="" class="h-8">
-                        <h3 class="ml-4 self-center dark:text-gray-300 font-semibold">
-                            {{ $country->name}}
-                        </h3>
+                        <img src="{{ $group->image }}" alt="">
+                        <a href="#" class="ml-4">
+                            {{ $group->name }}
+                        </a>
                     </div>
+                    
                 </x-post.layout>
             @endforeach
-
-            @if ($countries->links())
-                <div class="mb-10">
-                    {{ $countries->links() }}
-                </div>
-            @endif
-
         </x-main-content.layout>
         
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">

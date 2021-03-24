@@ -20,6 +20,10 @@
                 <x-icons.flag></x-icons.flag>
                 Countries
             </x-menu.item>
+            <x-menu.item href="/group">
+                <x-icons.group></x-icons.group>
+                Groups
+            </x-menu.item>
         </x-menu.layout>
         
         <x-main-content.layout>
@@ -36,7 +40,7 @@
                     <div class="flex justify-between">
                         <div class="flex">
                             <img src="{{ $user->image }}" alt="" class="h-8 rounded-full">
-                            <a href="/profile/{{ $user->nickname }}" class="text-md font-semibold self-center ml-2 text-md text-gray-600 dark:text-gray-300">
+                            <a href="/profile/{{ $user->nickname }}" class="text-md font-semibold self-center ml-4 text-md text-gray-600 dark:text-gray-300">
                                 {{ $user->nickname }}
                             </a>
                         </div>

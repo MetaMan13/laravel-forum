@@ -3,6 +3,7 @@
 @section('content')
     @include('page-parts.navigation')
     <div class="pt-16 min-h-screen flex">
+        
         <x-menu.layout>
             <x-menu.item href="/">
                 <x-icons.home></x-icons.home>
@@ -19,6 +20,10 @@
             <x-menu.item href="/country">
                 <x-icons.flag></x-icons.flag>
                 Countries
+            </x-menu.item>
+            <x-menu.item href="/group">
+                <x-icons.group></x-icons.group>
+                Groups
             </x-menu.item>
         </x-menu.layout>
         

@@ -72,3 +72,8 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/country', 'App\Http\Controllers\CountryController@index');
 });
+
+// GROUP ROUTES GROUP
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/group', 'App\Http\Controllers\GroupController@index');
+});

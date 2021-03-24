@@ -11,6 +11,7 @@ use App\Models\Like;
 use App\Models\Dislike;
 use App\Models\Follow;
 use App\Models\Country;
+use App\Models\Group;
 
 class User extends Authenticatable
 {
@@ -83,5 +84,10 @@ class User extends Authenticatable
     public function country()
     {
         return $this->hasOne(Country::class, 'id', 'country_id');
+    }
+
+    public function owns_groups()
+    {
+        return $this->hasMany(Group::class);
     }
 }
