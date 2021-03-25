@@ -27,12 +27,6 @@
         </x-menu.layout>
         
         <x-main-content.layout>
-
-            @if ($users->links())
-                <div class="mb-10">
-                    {{ $users->links() }}
-                </div>
-            @endif
             
             @foreach ($users as $user)
                 <x-profile.index-item-layout>

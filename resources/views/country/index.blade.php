@@ -28,12 +28,6 @@
             
         <x-main-content.layout>
 
-            @if ($countries->links())
-                <div class="mb-10">
-                    {{ $countries->links() }}
-                </div>
-            @endif
-
             @foreach ($countries as $country)
                 <x-post.layout>
                     <div class="flex">
