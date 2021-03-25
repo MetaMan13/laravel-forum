@@ -24,6 +24,7 @@ class GroupFactory extends Factory
         return [
             'name' => $this->faker->domainName,
             'user_id' => \App\Models\User::all()->random()->id,
+            'country_id' => \App\Models\Country::all()->random()->id,
             'description' => $this->faker->paragraph,
         ];
     }

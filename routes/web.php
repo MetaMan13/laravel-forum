@@ -19,7 +19,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/', function () {
     return view('home', [
-        'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->simplePaginate(30)
+        // 'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->simplePaginate(30)
+        'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->latest()->get()
     ]);
 })->middleware(['auth'])->name('home');
 

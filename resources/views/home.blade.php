@@ -74,11 +74,11 @@
                 </x-post.layout>
             @endforeach
 
-            @if ($posts->links())
+            {{-- @if ($posts->links())
                 <div class="mb-10 mt-10 md:mt-0">
                     {{ $posts->links() }}
                 </div>
-            @endif
+            @endif --}}
         </x-main-content.layout>
 
         <div class="hidden md:block md:min-h-full md:w-3/12 md:-mt-1 fixed right-0">

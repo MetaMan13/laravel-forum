@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('country_id');
             $table->text('description');
             $table->string('image')->default('/images/users.svg');
             $table->string('banner')->default('/images/default_group_image.jpg');
