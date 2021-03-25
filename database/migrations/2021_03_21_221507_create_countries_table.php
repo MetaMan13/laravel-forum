@@ -1,7 +1,9 @@
 <?php
 
+use Database\Seeders\CountriesTableSeeder;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCountriesTable extends Migration
@@ -20,6 +22,10 @@ class CreateCountriesTable extends Migration
             $table->string('image')->default('none');
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => CountriesTableSeeder::class
+        ]);
     }
 
     /**

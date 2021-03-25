@@ -28,12 +28,6 @@
         
         <x-main-content.layout>
 
-            @if ($posts->links())
-                <div class="mb-10 mt-10 md:mt-0">
-                    {{ $posts->links() }}
-                </div>
-            @endif
-
             @foreach ($posts as $post)
                 <x-post.layout>
                     {{-- User icon and nickname --}}
