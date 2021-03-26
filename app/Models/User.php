@@ -13,7 +13,7 @@ use App\Models\Follow;
 use App\Models\Country;
 use App\Models\Group;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -26,6 +26,7 @@ class User extends Authenticatable
         'nickname',
         'name',
         'email',
+        'email_verified_at',
         'country_id',
         'password',
         'theme',

@@ -22,10 +22,10 @@ Route::get('/', function () {
         // 'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->simplePaginate(30)
         'posts' => App\Models\Post::whereIn('user_id', auth()->user()->follows->pluck('follow_id'))->with('likes', 'comments', 'dislikes', 'user')->latest()->get()
     ]);
-})->middleware(['auth'])->name('home');
+})->middleware(['auth', 'verified'])->name('home');
 
 // PROFILE ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/profile', 'App\Http\Controllers\ProfilesController@index');
     Route::patch('/profile', 'App\Http\Controllers\ProfilesController@update');
     Route::get('/profile/{user:nickname}', 'App\Http\Controllers\ProfilesController@show');
@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 // POST ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/post', 'App\Http\Controllers\PostController@index');
     Route::get('/post/create', 'App\Http\Controllers\PostController@create');
     Route::post('/post', 'App\Http\Controllers\PostController@store');
@@ -44,37 +44,37 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 // THEME ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/theme', 'App\Http\Controllers\UserController@theme');
 });
 
 // LIKE ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/like', 'App\Http\Controllers\LikeController@create');
 });
 
 // DISLIKE ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/dislike', 'App\Http\Controllers\DislikeController@create');
 });
 
 // FOLLOW ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/follow', 'App\Http\Controllers\FollowController@create');
     Route::post('/unfollow', 'App\Http\Controllers\FollowController@destroy');
 });
 
 // NOTIFICATIONS ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/notifications', 'App\Http\Controllers\UserNotificationsController@show');
 });
 
 // COUNTRY ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/country', 'App\Http\Controllers\CountryController@index');
 });
 
 // GROUP ROUTES GROUP
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/group', 'App\Http\Controllers\GroupController@index');
 });
