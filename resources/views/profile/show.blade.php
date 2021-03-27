@@ -59,16 +59,16 @@
 
                 <div class="mt-6">
 
-                    <x-profile.show-menu-item-active>
-                        Timeline
-                    </x-profile.show-menu-item-active>
-
-                    <x-profile.show-menu-item>
-                        Edit profile
+                    <x-profile.show-menu-item href="#" text="Timeline" active="true">
+                        <x-icons.timeline></x-icons.timeline>
                     </x-profile.show-menu-item>
-
-                    <x-profile.show-menu-item>
-                        Security
+                    
+                    <x-profile.show-menu-item href="#" text="Edit profile">
+                        <x-icons.timeline></x-icons.timeline>
+                    </x-profile.show-menu-item>
+                    
+                    <x-profile.show-menu-item href="#" text="Security">
+                        <x-icons.timeline></x-icons.timeline>
                     </x-profile.show-menu-item>
 
                 </div>
