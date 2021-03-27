@@ -15,9 +15,29 @@
                         <img src="{{ $user->image }}" alt="" class="h-40 rounded-full">
                     </div>
 
-                    <div class="mt-2 mb-3">
+                    <div class="mt-2">
                         <h3 class="text-2xl font-medium">{{ $user->nickname }}</h3>
                     </div>
+
+                    @if (auth()->user()->follows->contains('follow_id', $user->id))
+                        <div class="flex mt-4 mb-4 w-full">
+                            <form action="/unfollow" method="POST" class="self-center w-full">
+                                @csrf
+                                @method('POST')
+                                    <input type="hidden" value="{{ $user->id }}" name="user_id">
+                                    <button type="submit" class="w-full bg-white text-sm md:text-md border rounded-md py-1 px-1.5 font-semibold focus:ring-0 focus:outline-none ring-offset-transparent border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-500 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:bg-gray-700">Unfollow</button>
+                            </form>
+                        </div>
+                    @else
+                        <div class="flex mt-4 mb-4 w-full">
+                            <form action="/follow" method="POST" class="self-center w-full">
+                                @csrf
+                                @method('POST')
+                                    <input type="hidden" value="{{ $user->id }}" name="user_id">
+                                    <button type="submit" class="w-full bg-white text-sm md:text-md border rounded-md py-1 px-1.5 font-semibold focus:ring-0 focus:outline-none ring-offset-transparent border-gray-400 hover:text-blue-600 hover:border-blue-600 dark:text-gray-300 dark:border-gray-500 dark:hover:text-blue-300 dark:hover:border-blue-300 dark:bg-gray-700">Follow</button>
+                            </form>
+                        </div>
+                    @endif
 
                 </div>
 
@@ -35,6 +55,7 @@
                         <div class="w-full ml-2 self-center">
                             <h4>{{ $user->country->name }}</h4>
                         </div>
+
                     </div>
 
                 </div>
