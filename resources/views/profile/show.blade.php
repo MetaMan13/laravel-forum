@@ -83,12 +83,12 @@
 
                 <div class="mt-6">
 
-                    <x-profile.show-menu-item href="#" text="Timeline" active="true">
+                    <x-profile.show-menu-item href="/profile/{{ $user->nickname }}" text="Timeline" active="true">
                         <x-icons.timeline></x-icons.timeline>
                     </x-profile.show-menu-item>
                     
                     @if (auth()->user()->id === $user->id)
-                        <x-profile.show-menu-item href="#" text="Edit profile">
+                        <x-profile.show-menu-item href="/profile/{{ $user->nickname }}/edit" text="Edit profile">
                             <x-icons.edit></x-icons.edit>
                         </x-profile.show-menu-item>
                         
