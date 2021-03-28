@@ -5,18 +5,21 @@
     @include('page-parts.navigation')
 
     <div class="min-h-screen w-full pt-20 mx-auto px-4 py-4 flex justify-between md:px-8 lg:px-16 xl:px-24 2xl:px-32">
-        <div class="min-h-full w-full md:grid md:grid-cols-12 border-2 border-gray-200 dark:border-gray-700 -mt-5 -mb-4">
+        <div class="min-h-full w-full md:grid md:grid-cols-12 md:border-2 border-gray-200 dark:border-gray-700 -mt-5 -mb-4">
 
-            <div class="bg-gray-50 dark:bg-gray-800 border-r-2 border-gray-200 dark:border-gray-700 hidden md:block md:min-h-full md:col-span-4 lg:col-span-3 xl:col-span-2 px-4 pt-4">
+            {{-- DESKTOP USER --}}
+            <div class="bg-gray-50 dark:bg-gray-800 md:border-r-2 border-gray-200 dark:border-gray-700 md:block md:min-h-full md:col-span-4 lg:col-span-4 xl:col-span-3 2xl:col-span-2 px-4 pt-4">
 
                 <div class="flex flex-col content-center items-center border-b-2 border-gray-200 dark:border-gray-700">
 
-                    <div>
-                        <img src="{{ $user->image }}" alt="" class="h-40 rounded-full">
-                    </div>
-
-                    <div class="mt-2">
-                        <h3 class="text-2xl font-medium">{{ $user->nickname }}</h3>
+                    <div class="flex md:flex-col w-full md:w-auto">
+                        <div>
+                            <img src="{{ $user->image }}" alt="" class="h-14 md:h-40 rounded-full">
+                        </div>
+    
+                        <div class="mt-3 md:mt-2 ml-4 md:ml-0">
+                            <h3 class="text-xl md:text-2xl font-medium">{{ $user->nickname }}</h3>
+                        </div>
                     </div>
 
                     @if (auth()->user()->follows->contains('follow_id', $user->id))
@@ -98,8 +101,9 @@
 
             </div>
 
-            <div class="bg-gray-50  dark:bg-gray-800 hidden md:block md:min-h-full md:col-span-8 lg:col-span-9 xl:col-span-10">
-                <div class="w-full min-h-full border-gray-200 px-12 py-4">
+            {{-- DESKTOP CONTENT --}}
+            <div class="bg-gray-50  dark:bg-gray-800 md:block md:min-h-full md:col-span-8 lg:col-span-8 xl:col-span-9 2xl:col-span-10 border-b border-gray-200 dark:border-gray-700">
+                <div class="w-full h-auto md:min-h-full px-4 pt-10 pb-6 md:px-12 md:py-4 mb-10 md:mb-0">
 
                     <div>
                         <h1 class="text-5xl font-semibold">Timeline</h1>
@@ -108,7 +112,7 @@
                     <div class="mt-8">
 
                         @foreach ($user->posts as $post)
-                            <div class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md flex justify-between">
+                            <div class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md md:flex md:justify-between">
                                 <div>
                                     <div>
                                         <h4 class="text-base">
@@ -121,7 +125,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex self-center mt-1">
+                                <div class="flex self-center mt-2 md:mt-1">
 
                                     <div class="mr-3 flex">
                                         <x-icons.like postId="{{ $post->id }}" height="20" width="20"></x-icons.like>
