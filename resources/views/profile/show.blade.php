@@ -84,13 +84,15 @@
                         <x-icons.timeline></x-icons.timeline>
                     </x-profile.show-menu-item>
                     
-                    <x-profile.show-menu-item href="#" text="Edit profile">
-                        <x-icons.edit></x-icons.edit>
-                    </x-profile.show-menu-item>
-                    
-                    <x-profile.show-menu-item href="#" text="Security">
-                        <x-icons.lock></x-icons.lock>
-                    </x-profile.show-menu-item>
+                    @if (auth()->user()->id === $user->id)
+                        <x-profile.show-menu-item href="#" text="Edit profile">
+                            <x-icons.edit></x-icons.edit>
+                        </x-profile.show-menu-item>
+                        
+                        <x-profile.show-menu-item href="#" text="Security">
+                            <x-icons.lock></x-icons.lock>
+                        </x-profile.show-menu-item>
+                    @endif
 
                 </div>
 
