@@ -7,9 +7,9 @@
     <div class="min-h-screen w-full pt-20 mx-auto px-4 py-4 flex justify-between md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         <div class="min-h-full w-full md:grid md:grid-cols-12 border-2 border-gray-200 dark:border-gray-700 -mt-5 -mb-4">
 
-            <div class="bg-gray-50  dark:bg-gray-800 border-r-2 border-gray-200 dark:border-gray-700 hidden md:block md:min-h-full md:col-span-4 lg:col-span-3 xl:col-span-2 px-4 pt-4">
+            <div class="bg-gray-50 dark:bg-gray-800 border-r-2 border-gray-200 dark:border-gray-700 hidden md:block md:min-h-full md:col-span-4 lg:col-span-3 xl:col-span-2 px-4 pt-4">
 
-                <div class="flex flex-col content-center items-center mt-2 border-b-2 border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col content-center items-center border-b-2 border-gray-200 dark:border-gray-700">
 
                     <div>
                         <img src="{{ $user->image }}" alt="" class="h-40 rounded-full">
@@ -41,7 +41,7 @@
 
                 </div>
 
-                <div class="mt-6">
+                <div class="mt-4">
 
                     <div>
                         <h3 class="font-medium text-lg">Country:</h3>
@@ -98,10 +98,58 @@
 
             </div>
 
-            <div class="bg-gray-50  dark:bg-gray-800 hidden md:block md:min-h-full md:col-span-8 lg:col-span-9 xl:col-span-10"></div>
+            <div class="bg-gray-50  dark:bg-gray-800 hidden md:block md:min-h-full md:col-span-8 lg:col-span-9 xl:col-span-10">
+                <div class="w-full min-h-full border-gray-200 px-12 py-4">
+
+                    <div>
+                        <h1 class="text-5xl font-semibold">Timeline</h1>
+                    </div>
+
+                    <div class="mt-8">
+
+                        @foreach ($user->posts as $post)
+                            <div class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md flex justify-between">
+                                <div>
+                                    <div>
+                                        <h4 class="text-base">
+                                            {{ $post->created_at }}
+                                        </h4>
+                                    </div>
+    
+                                    <div>
+                                        <a class="text-2xl hover:text-blue-600 dark:hover:text-blue-300" href="#">{{ $post->title }}</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex self-center mt-1">
+
+                                    <div class="mr-3 flex">
+                                        <x-icons.like postId="{{ $post->id }}" height="20" width="20"></x-icons.like>
+                                        <p class="text-lg">{{ count($post->likes )}}</p>
+                                    </div>
+                                    
+                                    <div class="mr-3 flex">
+                                        <x-icons.dislike postId="{{ $post->id }}" height="20" width="20"></x-icons.dislike>
+                                        <p class="text-lg">{{ count($post->dislikes )}}</p>
+                                    </div>
+                                    
+                                    <div class="flex">
+                                        <x-icons.comment height="20" width="20"></x-icons.comment>
+                                        <p class="text-lg">{{ count($post->comments )}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
+    
     @include('page-parts.mobile-user-bar')
 
 @endsection
