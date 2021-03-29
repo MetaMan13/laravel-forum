@@ -116,13 +116,13 @@
                             @csrf
                             @method('PATCH')
 
-                            <div>
+                            <div class="xl:mr-8">
                                 <div class="text-xl font-semibold mt-1 md:mt-2">
                                     <h3 class="md:text-2xl">Personal information</h3>
                                 </div>
-                                <div class="mt-4 md:mt-6 flex flex-col">
+                                <div class="mt-4 md:mt-6 flex flex-col xl:w-full">
                                     <label for="">Full name</label>
-                                    <input value="{{ $user->name }}" type="text" name="name" class="xl:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
+                                    <input value="{{ $user->name }}" type="text" name="name" class="md:max-w-screen-sm xl:w-1/2 mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600 focus:border-blue-600 dark:focus:border-blue-300 outline-none focus:ring-0">
                                 </div>
                             </div>
                             @error('title')
@@ -149,30 +149,32 @@
                                         <p class="text-red-600 text-md">{{ $message }}</p>
                                     </div>
                                 @enderror
-
-                                <div class="mt-6 md:mt-8 flex flex-col">
-                                    <label for="">Nickname</label>
-                                    <input value="{{ $user->nickname }}" type="text" name="nickname" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
-                                </div>
-                                @error('nickname')
-                                    <div class="mt-4">
-                                        <p class="text-red-600 text-md">{{ $message }}</p>
+                                
+                                <div class="xl:flex">
+                                    <div class="mt-6 md:mt-8 flex flex-col xl:w-1/2">
+                                        <label for="">Nickname</label>
+                                        <input value="{{ $user->nickname }}" type="text" name="nickname" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600 focus:border-blue-600 dark:focus:border-blue-300 outline-none focus:ring-0">
                                     </div>
-                                @enderror
-
-                                <div class="mt-6 md:mt-8 flex flex-col">
-                                    <label for="">Email</label>
-                                    <input value="{{ $user->email }}" type="text" name="email" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
-                                </div>
-                                @error('email')
-                                    <div class="mt-4">
-                                        <p class="text-red-600 text-md">{{ $message }}</p>
+                                    @error('nickname')
+                                        <div class="mt-4">
+                                            <p class="text-red-600 text-md">{{ $message }}</p>
+                                        </div>
+                                    @enderror
+    
+                                    <div class="mt-6 md:mt-8 flex flex-col xl:w-1/2 xl:ml-6">
+                                        <label for="">Email</label>
+                                        <input value="{{ $user->email }}" type="text" name="email" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600 focus:border-blue-600 dark:focus:border-blue-300 outline-none focus:ring-0">
                                     </div>
-                                @enderror
+                                    @error('email')
+                                        <div class="mt-4">
+                                            <p class="text-red-600 text-md">{{ $message }}</p>
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <div class="mt-8 mb-2">
-                                <button type="submit" class="md:max-w-screen-sm font-semibold text-lg text-white dark:text-gray-900 bg-blue-600 dark:bg-blue-300 w-full px-2 py-2 rounded-md">Save</button>
+                            <div class="mt-8 xl:mt-12 mb-2 xl:w-1/3">
+                                <button type="submit" class="md:max-w-screen-sm xl:w-full font-semibold text-lg text-white dark:text-gray-900 bg-blue-600 dark:bg-blue-300 w-full px-2 py-2 rounded-md border border-gray-300 dark:border-gray-500 focus:border-blue-600 dark:focus:border-blue-300 outline-none focus:outline-none focus:ring-0 focus:ring-offset-transparent ring-offset-transparent">Save</button>
                             </div>
 
                         </form>
