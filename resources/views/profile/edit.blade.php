@@ -17,7 +17,7 @@
                             <img src="{{ $user->image }}" alt="" class="h-14 w-14 md:h-40 md:w-auto rounded-full block">
                         </div>
     
-                        <div class="mt-3 md:mt-2 ml-4 md:ml-0">
+                        <div class="mt-3 md:mt-2 ml-4 md:ml-0 md:text-center">
                             <h3 class="text-xl md:text-2xl font-medium">{{ $user->nickname }}</h3>
                         </div>
                     </div>
@@ -111,53 +111,18 @@
 
                     <div class="mt-8">
 
-                        {{-- @foreach ($user->posts as $post)
-                            <div class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md md:flex md:justify-between">
-                                <div>
-                                    <div>
-                                        <h4 class="text-base">
-                                            {{ $post->created_at }}
-                                        </h4>
-                                    </div>
-    
-                                    <div>
-                                        <a class="text-2xl hover:text-blue-600 dark:hover:text-blue-300" href="#">{{ $post->title }}</a>
-                                    </div>
-                                </div>
-
-                                <div class="flex self-center mt-2 md:mt-1">
-
-                                    <div class="mr-3 flex">
-                                        <x-icons.like postId="{{ $post->id }}" height="20" width="20"></x-icons.like>
-                                        <p class="text-lg">{{ count($post->likes )}}</p>
-                                    </div>
-                                    
-                                    <div class="mr-3 flex">
-                                        <x-icons.dislike postId="{{ $post->id }}" height="20" width="20"></x-icons.dislike>
-                                        <p class="text-lg">{{ count($post->dislikes )}}</p>
-                                    </div>
-                                    
-                                    <div class="flex">
-                                        <x-icons.comment height="20" width="20"></x-icons.comment>
-                                        <p class="text-lg">{{ count($post->comments )}}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        @endforeach --}}
-
-                        <form method="POST" action="/profile" enctype="multipart/form-data" class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md md:flex md:justify-between">
+                        <form method="POST" action="/profile" enctype="multipart/form-data" class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md md:flex md:flex-col md:justify-between">
 
                             @csrf
                             @method('PATCH')
 
                             <div>
-                                <div class="text-xl font-semibold mt-1">
-                                    <h3>Personal information</h3>
+                                <div class="text-xl font-semibold mt-1 md:mt-2">
+                                    <h3 class="md:text-2xl">Personal information</h3>
                                 </div>
-                                <div class="mt-4">
+                                <div class="mt-4 md:mt-6 flex flex-col">
                                     <label for="">Full name</label>
-                                    <input value="{{ $user->name }}" type="text" name="name" class="mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
+                                    <input value="{{ $user->name }}" type="text" name="name" class="xl:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
                                 </div>
                             </div>
                             @error('title')
@@ -166,11 +131,11 @@
                                 </div>
                             @enderror
 
-                            <div class="mt-8">
+                            <div class="mt-8 md:mt-10">
                                 <div class="text-xl font-semibold">
-                                    <h3>Profile information</h3>
+                                    <h3 class="md:text-2xl">Profile information</h3>
                                 </div>
-                                <div class="mt-4">
+                                <div class="mt-4 md:mt-6">
                                     <label for="">Profile image</label>
                                     <div class="mt-4">
                                         <label for="file-upload" class="font-semibold rounded-md text-white dark:text-gray-800 bg-blue-600 dark:bg-blue-300 border border-gray-300 dark:border-gray-500 py-2 px-2 mt-2">
@@ -185,9 +150,9 @@
                                     </div>
                                 @enderror
 
-                                <div class="mt-6">
+                                <div class="mt-6 md:mt-8 flex flex-col">
                                     <label for="">Nickname</label>
-                                    <input value="{{ $user->nickname }}" type="text" name="nickname" class="mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
+                                    <input value="{{ $user->nickname }}" type="text" name="nickname" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
                                 </div>
                                 @error('nickname')
                                     <div class="mt-4">
@@ -195,9 +160,9 @@
                                     </div>
                                 @enderror
 
-                                <div class="mt-6">
+                                <div class="mt-6 md:mt-8 flex flex-col">
                                     <label for="">Email</label>
-                                    <input value="{{ $user->email }}" type="text" name="email" class="mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
+                                    <input value="{{ $user->email }}" type="text" name="email" class="md:max-w-screen-sm mt-2 w-full border-gray-300 dark:border-gray-500 rounded-md bg-gray-50 dark:bg-gray-600">
                                 </div>
                                 @error('email')
                                     <div class="mt-4">
@@ -207,7 +172,7 @@
                             </div>
 
                             <div class="mt-8 mb-2">
-                                <button type="submit" class="font-semibold text-lg text-white dark:text-gray-900 bg-blue-600 dark:bg-blue-300 w-full px-2 py-2 rounded-md">Save</button>
+                                <button type="submit" class="md:max-w-screen-sm font-semibold text-lg text-white dark:text-gray-900 bg-blue-600 dark:bg-blue-300 w-full px-2 py-2 rounded-md">Save</button>
                             </div>
 
                         </form>

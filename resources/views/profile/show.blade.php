@@ -17,7 +17,7 @@
                             <img src="{{ $user->image }}" alt="" class="h-14 md:h-40 rounded-full">
                         </div>
     
-                        <div class="mt-3 md:mt-2 ml-4 md:ml-0">
+                        <div class="mt-3 md:mt-2 ml-4 md:ml-0 md:text-center">
                             <h3 class="text-xl md:text-2xl font-medium">{{ $user->nickname }}</h3>
                         </div>
                     </div>
@@ -115,30 +115,30 @@
                             <div class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-4 mb-8 rounded-md md:flex md:justify-between">
                                 <div>
                                     <div>
-                                        <h4 class="text-base">
-                                            {{ $post->created_at }}
+                                        <h4 class="text-md md:text-base">
+                                            {{ now()->diffForHumans($post->created_at, true) }} ago
                                         </h4>
                                     </div>
     
-                                    <div>
-                                        <a class="text-2xl hover:text-blue-600 dark:hover:text-blue-300" href="#">{{ $post->title }}</a>
+                                    <div class="mt-1 md:mt-0">
+                                        <a class="text-xl md:text-2xl hover:text-blue-600 dark:hover:text-blue-300" href="#">{{ $post->title }}</a>
                                     </div>
                                 </div>
 
-                                <div class="flex self-center mt-2 md:mt-1">
+                                <div class="flex self-center mt-3 md:mt-1">
 
                                     <div class="mr-3 flex">
-                                        <x-icons.like postId="{{ $post->id }}" height="20" width="20"></x-icons.like>
+                                        <x-icons.like postId="{{ $post->id }}" height="18" width="18" md:height="20" md:width="20"></x-icons.like>
                                         <p class="text-lg">{{ count($post->likes )}}</p>
                                     </div>
                                     
                                     <div class="mr-3 flex">
-                                        <x-icons.dislike postId="{{ $post->id }}" height="20" width="20"></x-icons.dislike>
+                                        <x-icons.dislike postId="{{ $post->id }}" height="18" width="18" md:height="20" md:width="20"></x-icons.dislike>
                                         <p class="text-lg">{{ count($post->dislikes )}}</p>
                                     </div>
                                     
                                     <div class="flex">
-                                        <x-icons.comment height="20" width="20"></x-icons.comment>
+                                        <x-icons.comment height="18" width="18" md:height="20" md:width="20"></x-icons.comment>
                                         <p class="text-lg">{{ count($post->comments )}}</p>
                                     </div>
 
